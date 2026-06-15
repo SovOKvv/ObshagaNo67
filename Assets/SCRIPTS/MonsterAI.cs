@@ -31,6 +31,10 @@ public class MonsterAI : MonoBehaviour
     private Vector3 lastHeardPosition;
     private float timeSinceLastSound = 999f;
     private bool hasHeardSound = false;
+
+    [Header("Attack Settings")]
+    public float attackCooldown = 1f;
+    private float attackTimer = 0f;
     
     void Start()
     {
@@ -48,13 +52,18 @@ public class MonsterAI : MonoBehaviour
         bool canSeePlayer = CanSeePlayer();
         bool isPlayerClose = distanceToPlayer <= proximityRange;
         
+        // Обновляем таймер атаки
+        if (attackTimer > 0)
+            attackTimer -= Time.deltaTime;
+        
         if (isPlayerClose || canSeePlayer)
         {
             TurnTowardsPlayer();
             
-            if (distanceToPlayer <= attackRange)
+            if (distanceToPlayer <= attackRange && attackTimer <= 0)
             {
                 Attack();
+                attackTimer = attackCooldown;
             }
             else if (canSeePlayer)
             {
@@ -190,6 +199,16 @@ public class MonsterAI : MonoBehaviour
     void Attack()
     {
         Debug.Log("Monster attacks!");
+    
+        // Находим игрока и наносим урон
+        if (player != null)
+        {
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(1);
+            }
+        }
     }
     
     void OnDrawGizmosSelected()

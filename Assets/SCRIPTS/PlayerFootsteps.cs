@@ -25,6 +25,9 @@ public class PlayerFootsteps : MonoBehaviour
         audioSource.playOnAwake = false;
         audioSource.loop = false;
         audioSource.volume = 0.6f;
+        
+        // ВАЖНО: устанавливаем таймер на полный интервал, чтобы первый шаг был не мгновенно
+        stepTimer = walkStepInterval;
     }
     
     void Update()
@@ -53,7 +56,8 @@ public class PlayerFootsteps : MonoBehaviour
         }
         else
         {
-            stepTimer = 0f;
+            // Когда стоим - сбрасываем таймер на полный интервал
+            stepTimer = walkStepInterval;
         }
     }
     
