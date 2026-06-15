@@ -25360,9 +25360,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6817289241370934482, guid: edfb747c2977c9641b3ce0098380bd2d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1319438937}
-    - targetCorrespondingSourceObject: {fileID: 6817289241370934482, guid: edfb747c2977c9641b3ce0098380bd2d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1319438943}
     - targetCorrespondingSourceObject: {fileID: 1265612173647996709, guid: edfb747c2977c9641b3ce0098380bd2d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 287901675}
@@ -73748,27 +73745,6 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &1319438943
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319438930}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 1.9999999, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &1320032461
 Mesh:
