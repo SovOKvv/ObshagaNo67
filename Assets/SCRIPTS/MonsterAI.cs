@@ -35,6 +35,14 @@ public class MonsterAI : MonoBehaviour
     [Header("Attack Settings")]
     public float attackCooldown = 1f;
     private float attackTimer = 0f;
+
+    // ========== НОВЫЕ НАСТРОЙКИ ЗВУКОВ ==========
+    [Header("Footstep Sounds")]
+    public AudioSource footstepAudioSource;
+    public AudioClip[] footstepClips;
+    public float footstepInterval = 0.5f;
+    private float footstepTimer = 0f;
+    private bool wasMoving = false;
     
     void Start()
     {
@@ -44,6 +52,18 @@ public class MonsterAI : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
         
         GetNewPatrolPoint();
+
+        // Инициализация AudioSource для шагов
+        if (footstepAudioSource == null)
+            footstepAudioSource = GetComponent<AudioSource>();
+        
+        if (footstepAudioSource == null && footstepClips.Length > 0)
+        {
+            footstepAudioSource = gameObject.AddComponent<AudioSource>();
+            footstepAudioSource.spatialBlend = 1f; // 3D звук
+            footstepAudioSource.volume = 0.5f;
+            footstepAudioSource.playOnAwake = false;
+        }
     }
     
     void Update()
@@ -55,6 +75,10 @@ public class MonsterAI : MonoBehaviour
         // Обновляем таймер атаки
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
+        
+        // ========== ОБНОВЛЕНИЕ ЗВУКОВ ШАГОВ ==========
+        bool isMoving = agent.velocity.magnitude > 0.1f;
+        UpdateFootstepSounds(isMoving);
         
         if (isPlayerClose || canSeePlayer)
         {
@@ -104,6 +128,52 @@ public class MonsterAI : MonoBehaviour
         }
     }
     
+    // ========== НОВЫЙ МЕТОД ДЛЯ ЗВУКОВ ШАГОВ ==========
+    void UpdateFootstepSounds(bool isMoving)
+    {
+        // Если монстр стоит на месте — не играем звуки
+        if (!isMoving)
+        {
+            footstepTimer = 0f;
+            wasMoving = false;
+            return;
+        }
+
+        // Если монстр только начал двигаться — сбрасываем таймер
+        if (!wasMoving && isMoving)
+        {
+            footstepTimer = 0f;
+            wasMoving = true;
+        }
+
+        footstepTimer += Time.deltaTime;
+
+        if (footstepTimer >= footstepInterval)
+        {
+            PlayFootstepSound();
+            footstepTimer = 0f;
+        }
+    }
+
+    void PlayFootstepSound()
+    {
+        if (footstepClips == null || footstepClips.Length == 0)
+            return;
+
+        if (footstepAudioSource == null)
+            return;
+
+        // Выбираем случайный звук
+        int randomIndex = Random.Range(0, footstepClips.Length);
+        AudioClip clip = footstepClips[randomIndex];
+
+        if (clip != null)
+        {
+            footstepAudioSource.PlayOneShot(clip, 0.5f);
+        }
+    }
+    
+    // ОСТАЛЬНЫЕ МЕТОДЫ БЕЗ ИЗМЕНЕНИЙ...
     void Patrol()
     {
         agent.speed = patrolSpeed;
@@ -200,7 +270,6 @@ public class MonsterAI : MonoBehaviour
     {
         Debug.Log("Monster attacks!");
     
-        // Находим игрока и наносим урон
         if (player != null)
         {
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
