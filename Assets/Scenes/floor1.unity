@@ -28233,7 +28233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1915cc5e0a0cd428b3fec09c045d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Apparition
-  disappearDistance: 3
+  disappearDistance: 5
   isActive: 0
   hasDisappeared: 0
 --- !u!65 &441447291
@@ -28345,7 +28345,7 @@ Transform:
   m_GameObject: {fileID: 441447289}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.57, y: 2.16503, z: 58.156}
+  m_LocalPosition: {x: 12.57, y: -2.969, z: 58.156}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37726,6 +37726,37 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &603762654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603762655}
+  m_Layer: 0
+  m_Name: SpawnPoint_1(silu) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603762655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603762654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.211, y: 1.23, z: 9.103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604654457
 GameObject:
   m_ObjectHideFlags: 0
@@ -41043,6 +41074,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &687458494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687458495}
+  m_Layer: 0
+  m_Name: SpawnPoint_1(silu) (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &687458495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687458494}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7581875, z: -0, w: 0.6520366}
+  m_LocalPosition: {x: -1.22, y: 1.955, z: 10.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 98.609, z: 0}
 --- !u!43 &689835433
 Mesh:
   m_ObjectHideFlags: 0
@@ -77186,6 +77248,37 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1358552247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358552248}
+  m_Layer: 0
+  m_Name: SpawnPoint_1(silu)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1358552248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358552247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.431, y: 1.72511, z: 58.961}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359257974
 GameObject:
   m_ObjectHideFlags: 0
@@ -88374,6 +88467,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eaeab131b5571964f824a2df42e6d6ff, type: 3}
   m_PrefabInstance: {fileID: 1592030741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1592279553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1592279554}
+  m_Layer: 0
+  m_Name: SpawnPoint_1(silu) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1592279554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592279553}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9969556, z: -0, w: 0.07797168}
+  m_LocalPosition: {x: 13.84, y: 1.06, z: -24.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 171.056, z: 0}
 --- !u!43 &1607558908
 Mesh:
   m_ObjectHideFlags: 0
@@ -89270,14 +89394,14 @@ MonoBehaviour:
   apparitionPrefabs:
   - {fileID: 441447290}
   - {fileID: 1686873419}
+  spawnPoints:
+  - {fileID: 1358552248}
+  - {fileID: 1592279554}
+  - {fileID: 603762655}
+  - {fileID: 687458495}
   minSpawnInterval: 8
   maxSpawnInterval: 20
   maxActiveApparitions: 2
-  spawnRadius: 30
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  heightOffset: 0.5
   escapeDoor: {fileID: 812393904}
 --- !u!4 &1632339622
 Transform:
@@ -92371,7 +92495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1915cc5e0a0cd428b3fec09c045d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Apparition
-  disappearDistance: 3
+  disappearDistance: 5
   isActive: 0
   hasDisappeared: 0
 --- !u!65 &1686873420
@@ -92483,8 +92607,8 @@ Transform:
   m_GameObject: {fileID: 1686873418}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9942457, z: -0, w: -0.1071237}
-  m_LocalPosition: {x: 18.25, y: 1.54, z: 44.83}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 18.25, y: -2.617, z: 44.83}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -114810,3 +114934,7 @@ SceneRoots:
   - {fileID: 441447295}
   - {fileID: 1686873424}
   - {fileID: 1632339622}
+  - {fileID: 1358552248}
+  - {fileID: 1592279554}
+  - {fileID: 603762655}
+  - {fileID: 687458495}

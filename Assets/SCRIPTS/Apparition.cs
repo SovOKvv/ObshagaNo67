@@ -8,16 +8,27 @@ public class Apparition : MonoBehaviour
     public bool hasDisappeared = false;
 
     private GameObject player;
-    private Renderer objectRenderer;
     private Collider objectCollider;
+    private MeshRenderer meshRenderer;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        objectRenderer = GetComponent<Renderer>();
         objectCollider = GetComponent<Collider>();
+        meshRenderer = GetComponent<MeshRenderer>();
         
-        SetVisible(false);
+        // ⚠️ УБИРАЕМ SetVisible(false) ОТСЮДА!
+        // Вместо этого просто проверяем isActive
+        if (!isActive)
+        {
+            // Если не активен — скрываем
+            SetVisible(false);
+        }
+        else
+        {
+            // Если активен — показываем
+            SetVisible(true);
+        }
     }
 
     void Update()
@@ -52,8 +63,9 @@ public class Apparition : MonoBehaviour
 
     public void SetVisible(bool visible)
     {
-        if (objectRenderer != null)
-            objectRenderer.enabled = visible;
+        if (meshRenderer != null)
+            meshRenderer.enabled = visible;
+        
         if (objectCollider != null)
             objectCollider.enabled = visible;
     }
