@@ -115,4 +115,11 @@ public class AlarmSystem : MonoBehaviour
 
         isAlarmActive = false;
     }
+    public void ForceActivateAlarm()
+    {
+        if (!isAlarmActive)
+        {
+            StartCoroutine(ActivateAlarm());
+        }
+    }
 }
