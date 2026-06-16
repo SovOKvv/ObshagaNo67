@@ -15,7 +15,7 @@ public class EscapeDoor : MonoBehaviour
     public AudioSource strangeSoundSource;
     public AudioClip[] strangeSoundClips;
     public GameObject monsterPrefab;
-    public Transform[] monsterSpawnPoints;  // МАССИВ точек спавна (не одна, а много!)
+    public Transform[] monsterSpawnPoints;
     public AlarmSystem alarmSystem;
 
     [HideInInspector]
@@ -58,11 +58,13 @@ public class EscapeDoor : MonoBehaviour
 
     void OnNotesCollected()
     {
+        /*
         if (collectedNotes >= 2 && !strangeSoundPlayed)
         {
             PlayStrangeSounds();
             strangeSoundPlayed = true;
         }
+        */
 
         if (collectedNotes >= 3 && !monsterSpawned)
         {
@@ -70,12 +72,13 @@ public class EscapeDoor : MonoBehaviour
             monsterSpawned = true;
         }
 
+        /*
         if (collectedNotes >= 4 && !alarmTriggered)
         {
             TriggerAlarm();
             alarmTriggered = true;
         }
-
+        */
         if (collectedNotes >= 5)
         {
             MaxDifficulty();
@@ -109,13 +112,13 @@ public class EscapeDoor : MonoBehaviour
             return;
         }
 
-        // Выбираем случайную точку из массива
+        // ВЫБИРАЕМ СЛУЧАЙНУЮ ТОЧКУ ИЗ МАССИВА
         int randomIndex = Random.Range(0, monsterSpawnPoints.Length);
         Transform chosenSpawnPoint = monsterSpawnPoints[randomIndex];
 
         Debug.Log($"[Сложность] Монстр появляется в точке {randomIndex}: {chosenSpawnPoint.position}");
 
-        // Создаём монстра в выбранной точке
+        // СОЗДАЁМ МОНСТРА В ВЫБРАННОЙ ТОЧКЕ
         Instantiate(monsterPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
     }
 

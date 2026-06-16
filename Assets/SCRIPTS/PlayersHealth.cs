@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+
     [Header("Health Settings")]
     public int maxHealth = 2;
     private int currentHealth;
@@ -60,8 +62,8 @@ public class PlayerHealth : MonoBehaviour
         if (deathScreenUI != null)
             deathScreenUI.SetActive(true);
         
-        // Останавливаем время (опционально)
-        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     
     public void RestartGame()
@@ -80,5 +82,9 @@ public class PlayerHealth : MonoBehaviour
     {
         Time.timeScale = 1f;
         Application.Quit();
+    }
+    public bool IsDead()
+    {
+        return isDead;
     }
 }

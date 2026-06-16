@@ -14,6 +14,7 @@ public class PlayerFootsteps : MonoBehaviour
     private AudioSource audioSource;
     private float stepTimer = 0f;
     private int lastPlayedIndex = -1;
+    private bool hasStartedMoving = false; // Флаг, что игрок начал двигаться
     
     void Start()
     {
@@ -26,14 +27,22 @@ public class PlayerFootsteps : MonoBehaviour
         audioSource.loop = false;
         audioSource.volume = 0.6f;
         
-        // ВАЖНО: устанавливаем таймер на полный интервал, чтобы первый шаг был не мгновенно
-        stepTimer = walkStepInterval;
+        // Таймер стартует с полным интервалом, но звук не играет, пока не будет движения
+        stepTimer = walkStepInterval + 0.5f;
+        hasStartedMoving = false;
     }
     
     void Update()
     {
         bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || 
                         Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+        
+        // Если игрок начал двигаться — запоминаем это
+        if (isMoving && !hasStartedMoving)
+        {
+            hasStartedMoving = true;
+            stepTimer = walkStepInterval; // Сбрасываем таймер при старте движения
+        }
         
         if (isMoving)
         {
@@ -56,7 +65,7 @@ public class PlayerFootsteps : MonoBehaviour
         }
         else
         {
-            // Когда стоим - сбрасываем таймер на полный интервал
+            // Когда стоим — сбрасываем таймер, но НЕ сбрасываем флаг движения
             stepTimer = walkStepInterval;
         }
     }
